@@ -15,7 +15,7 @@
     },
     {
         "id": 3,
-        "task": "Learn Basics SCSS and JavaScript",
+        "task": "Learn Basic SCSS and JavaScript",
         "desc": "You have to learn all the basic concepts of the SCSS and JavaScript.",
         "status": "Not Started",
         "date": "24/07/2023"

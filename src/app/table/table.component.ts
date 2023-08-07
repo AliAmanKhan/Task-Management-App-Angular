@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import data from "src/assets/data.json";
-import { DatePipe } from '@angular/common';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ActionDialogComponent } from '../action-dialog/action-dialog.component';
-import { HttpClient } from '@angular/common/http';
-import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-table',
@@ -49,23 +46,11 @@ export class TableComponent implements OnInit {
     }
   }
 
-  // Function to add the new item into the dataSource and also in the localStorage 
-  addItem(formData: { id: number; task: string; desc: string; status: string; date: string }) {
-    // const formattedDate = this.datePipe.transform(formData.date, 'dd/MM/yyyy');
-    const newItem = { id: formData.id, task: formData.task, desc: formData.desc, status: formData.status, date: formData.date };
-    const dataValue = this.dataSource.push(newItem);
-    console.log("dataSource value after addItem:" + dataValue);
-    localStorage.setItem('formData', JSON.stringify(this.dataSource));
-    // this.dataSource.push({ id: formData.id, task: formData.task, desc: formData.desc, status: formData.status, date: formData.date });
-    // this.saveToLocalStorage();
-  }
-
   // Function to open the dialog on click
   openAddDialog(): void {
     const dialogRef = this.dialog.open(ActionDialogComponent, {
       data: {updateItem: this.dataSource,
         indexOfData: -1}
-      // data: {title: 'Add', item: {id: 0, task: '', desc: '', status: '', date: ''}},
     });
     dialogRef.afterClosed().subscribe(result => {
       this.dataSource = [...this.dataSource,result]

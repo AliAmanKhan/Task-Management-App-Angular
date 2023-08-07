@@ -12,7 +12,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ActionDialogComponent implements OnInit {
   taskForm!: FormGroup;
-  // newJsonData: data;
+
   statuses = [
     {value: 'Completed', viewValue: 'Completed'},
     {value: 'Not Started', viewValue: 'Not Started'},
@@ -32,7 +32,8 @@ export class ActionDialogComponent implements OnInit {
       status: '',
     })
   }
-  // savedFormData =[];
+
+  // Function called on the submition of the form
   onFormSubmit(){
     if(this.taskForm.valid){
       let valueTaskForm = this.taskForm.value.date;
@@ -40,30 +41,7 @@ export class ActionDialogComponent implements OnInit {
       this.taskForm.value.date = valueTaskForm;
 
       this.dialogRef.close(this.taskForm.value);
-      // this.data.push(valueTaskForm);
-      
-      // localStorage.setItem('formData', JSON.stringify(this.data));
-      // console.log(localStorage.getItem('formData'));
-      // const newLocalStorageData = this.TableComponent.addItem(this.taskForm.value);
-      // console.log(newLocalStorageData);
     }
   }
 
-    // formData: {} ={id: 0, task: '', desc: '', status: '', date: ''};
-    // addToTable( id: number, task: string, desc: string, status: string, date: string ){
-    //   const tableDataToAdd = {
-    //     id: Number,
-    //     task: String,
-    //     desc: String,
-    //     status: String,
-    //     date: Date
-    //   }
-    //   const newData = localStorage.setItem('formData', JSON.stringify(this.data));
-    //   newData.push(tableDataToAdd);
-      // if(form.valid){
-      //   this.TableComponent.addItem(this.formData);
-      //   this.formData = { id: 0, task: '', desc: '', status: '', date: '' };
-      // }
-
-    // }
 }

@@ -1,4 +1,5 @@
 <div id="table">
+  <!-- Filters for the status value  -->
   <mat-card class="filters">
     <button mat-button (click)="filterData('total')">
       <mat-card class="card-filter blue">
@@ -57,7 +58,8 @@
         <th mat-header-cell *matHeaderCellDef> Date </th>
         <td mat-cell *matCellDef="let element"> {{element.date}} </td>
       </ng-container>
-    
+
+      <!-- Actions Column  -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element"> 
@@ -70,5 +72,4 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
     </table>
-    <!-- just for testing -->
   </div>
