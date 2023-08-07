@@ -1,0 +1,65 @@
+#table{
+
+    display: flex;
+    flex-direction: column;
+    width: 70rem;
+    justify-content: center;
+    align-items: center;
+}
+/* #table table{ 
+    width: 80vw;
+} */
+
+.filters{
+    height: 7rem;
+    width: 70rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.card-filter{
+    height: 5rem;
+    width: 15rem;
+    background-color: aquamarine;
+    color: black;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-filter h2{
+    padding: 0;
+    margin: 0;
+}
+.blue{
+    background-color: rgb(0, 0, 255, 0.2);
+    color: blue;
+}
+.blue:hover{
+    background-color: rgb(0, 0, 255, 0.1);
+}
+.green{
+    background-color: rgba(71, 195, 71, 0.2);
+    color: green;
+}
+.green:hover{
+    background-color: rgba(71, 195, 71, 0.1);
+}
+.orange{
+    background-color: rgba(200, 96, 59, 0.2);
+    color: orangered;
+}
+.orange:hover{
+    background-color: rgba(200, 96, 59, 0.1);
+}
+.red{
+    background-color: rgb(255, 0, 0, 0.2);
+    color: red;
+}
+.red:hover{
+    background-color: rgb(255, 0, 0, 0.1);
+}

@@ -1,0 +1,9 @@
+mat-form-field{
+    margin: 0.5rem;
+}
+.textarea{
+    width: 100%;
+}
+#dataForm button{
+    margin: 0 0.5rem 0 0.5rem;
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "task": "Learn Basics of Github",
+        "desc": "In this task you have to learn all the basic concepts of the git and github.",
+        "status": "Completed",
+        "date": "21/07/2023"
+    },
+    {
+        "id": 2,
+        "task": "Develope a template using HTML and CSS",
+        "desc": "In this task you have to generate a web template only using HTML and CSS.",
+        "status": "Completed",
+        "date": "22/07/2023"
+    },
+    {
+        "id": 3,
+        "task": "Learn Basics SCSS and JavaScript",
+        "desc": "You have to learn all the basic concepts of the SCSS and JavaScript.",
+        "status": "Not Started",
+        "date": "24/07/2023"
+    },
+    {
+        "id": 4,
+        "task": "Implement CRUD operations",
+        "desc": "You have to perform CRUD operations using JavaScript.",
+        "status": "Pending",
+        "date": "25/07/2023"
+    }
+]
