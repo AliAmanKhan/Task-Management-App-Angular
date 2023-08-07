@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { TableComponent } from './table/table.component';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,12 @@ import { TableComponent } from './table/table.component';
 export class AppComponent {
   title = 'ng-task-management';
 
-  
   @ViewChild(TableComponent) TableComponent!: TableComponent;
+  buttonDisable = false;
   callAddDialog(){
+    this.buttonDisable = true;
     this.TableComponent.openAddDialog();
+    this.buttonDisable = false;
   }
 
     // applyFilter(event: Event) {

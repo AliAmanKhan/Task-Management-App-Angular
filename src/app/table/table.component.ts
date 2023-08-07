@@ -22,13 +22,14 @@ export class TableComponent implements OnInit {
     id: number; task: string; desc: string; status: string; date: string
   } | null = null;
   dataLet: any[] = [];
-  // totalData : number;
-  // completedData: any[];
-  // completedValue: number;
-  // pendingData: any[];
-  // pendingValue: number;
-  // notStartedData: any[];
-  // notStartedValue: number;
+
+  totalData!: number;
+  completedData!: any[];
+  completedValue!: number;
+  pendingData!: any[];
+  pendingValue!: number;
+  notStartedData!: any[];
+  notStartedValue!: number;
 
   constructor(public dialog: MatDialog) {
     // localStorage.clear();
@@ -36,7 +37,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDataFromLocalStorage(); //Loads the localStorage data in the dataSource on component initialization
-    // this.filterValues(this.dataSource);
+    this.filterValues(this.dataSource);
     this.dataLet = this.dataSource;
   }
 
@@ -49,8 +50,8 @@ export class TableComponent implements OnInit {
   }
 
   // Function to add the new item into the dataSource and also in the localStorage 
-  // const formattedDate = this.datePipe.transform(formData.date, 'dd/MM/yyyy');
   addItem(formData: { id: number; task: string; desc: string; status: string; date: string }) {
+    // const formattedDate = this.datePipe.transform(formData.date, 'dd/MM/yyyy');
     const newItem = { id: formData.id, task: formData.task, desc: formData.desc, status: formData.status, date: formData.date };
     const dataValue = this.dataSource.push(newItem);
     console.log("dataSource value after addItem:" + dataValue);
@@ -69,7 +70,7 @@ export class TableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.dataSource = [...this.dataSource,result]
       localStorage.setItem('formData', JSON.stringify([...this.dataSource]));
-      // this.filterValues(this.dataSource);
+      this.filterValues(this.dataSource);
       this.dataLet = [...this.dataSource];
     });
   }
@@ -82,7 +83,7 @@ export class TableComponent implements OnInit {
   // Function to delete the row from the table 
   deleteItem(id: number) {
     this.dataSource = this.dataSource.filter((item) => item.id !== id);
-    // this.saveToLocalStorage();
+    this.saveToLocalStorage();
   }
 
   // Function to filter the data from the table 
@@ -109,7 +110,7 @@ export class TableComponent implements OnInit {
         dialogData.afterClosed().subscribe(result => {
           this.dataSource = [...this.dataSource,result];
           localStorage.setItem('formData', JSON.stringify([...this.dataSource]));
-          // this.filterValues(this.dataSource);
+          this.filterValues(this.dataSource);
           this.dataSource = [...this.dataSource];
         });
       break;
@@ -117,19 +118,20 @@ export class TableComponent implements OnInit {
     }
   }
 
-  // filterValues(data: any[]) {
-  //   this.totalData = data.length;
-  //   this.completedData = data.filter((data) => {
-  //     return data.status == "Completed";
-  //   });
-  //   this.completedValue = this.completedData.length;
-  //   this.pendingData = data.filter((data) => {
-  //     return data.status == "Pending";
-  //   });
-  //   this.pendingValue = this.pendingData.length;
-  //   this.notStartedData = data.filter((data) => {
-  //     return data.status == "Not Started";
-  //   });
-  //   this.notStartedValue = this.notStartedData.length;
-  // } 
+  // Function to print the number of every filter value
+  filterValues(data: any[]) {
+    this.totalData = data.length;
+    this.completedData = data.filter((data) => {
+      return data.status == "Completed";
+    });
+    this.completedValue = this.completedData.length;
+    this.pendingData = data.filter((data) => {
+      return data.status == "Pending";
+    });
+    this.pendingValue = this.pendingData.length;
+    this.notStartedData = data.filter((data) => {
+      return data.status == "Not Started";
+    });
+    this.notStartedValue = this.notStartedData.length;
+  } 
 }
